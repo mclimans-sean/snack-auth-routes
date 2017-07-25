@@ -49,14 +49,20 @@ router.post('/signin', (req, res, next) => {
           if (bcrypt.compareSync(req.body.password, user.password)) {
             res.redirect('/')
           } else {
-            res.redirect('/signin')
+            res.json({
+              message: "You shouldn't be here"
+            })
           }
         } else {
-          res.redirect('/signin')
+          res.json({
+            message: "You shouldn't be here"
+          })
         }
       })
   } else {
-    res.redirect('signup')
+    res.json({
+      message: "You shouldn't be here"
+    })
   }
 });
 
